@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+    <style>
+        div{
+            margin: auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form method="post" action="/search">{% csrf_token %}
+            <input list="usernames" type="text" id="search_term" name="search" placeholder="enter name " autocomplete="off">
+            <input id="marks" type="text" name="marks" placeholder="marks">
+            <datalist id="usernames">
+            </datalist>
+            <select name="filter" id="search_by">
+                <option value="st">Student</option>
+                <option value="te">Teacher</option>
+            </select>
+            <br/>
+            <input type="submit" id="submit" value="search">
+        </form>
+    </div>
+    <div id="output"></div>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <script src="{% static 'test.js' %}" type="text/javascript"></script>
+</body>
+</html>
